@@ -1,0 +1,23 @@
+# Railway Nixpacks Configuration for Node.js Application
+# This file tells Railway how to build and deploy the application without Docker
+
+[build]
+# Specify the Node.js version
+nodejs_version = "20"
+
+# Specify build commands
+[build.commands]
+# Install dependencies
+install = "npm install"
+
+# Build the application (TypeScript compilation)
+build = "npm run build"
+
+[start]
+# Specify the start command
+command = "node dist/index.js"
+
+[variables]
+# Default environment variables
+PORT = "${PORT:-3001}"
+NODE_ENV = "production"
